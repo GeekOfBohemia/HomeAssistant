@@ -1,18 +1,18 @@
 blueprint:
-  name: Appliance has finished
-  description: Do something when an appliance (like a washing machine or dishwasher)
-    has finished as detected by a power sensor.
+  name: Sledování spotřebiče
+  description: Vykoná něco, když spotřebič (jako pračka nebo myčka nádobí)
+     začal pracovat a poté skončil,na základě sensoru výkonu ve wattech.
   domain: automation
   input:
     power_sensor:
       name: Power Sensor
-      description: Power sensor entity (e.g. from a smart plug device).
+      description: Entita snímače měřícího výkon ve wattech.
       selector:
         entity:
           domain: sensor
     starting_threshold:
-      name: Starting power threshold
-      description: Power threshold above which we assume the appliance has started.
+      name: Prahová hodnota startovacího výkonu (1-100W)
+      description: Prahová hodnota výkonu, nad kterou předpokládáme, že se spotřebič spustil.
       default: 5
       selector:
         number:
@@ -22,8 +22,8 @@ blueprint:
           mode: slider
           step: 1.0
     starting_hysteresis:
-      name: Starting hysteresis
-      description: Time duration the power measurement has to stay above the starting
+      name: Začátek hysteréze
+      description: Doba začátku měření výkonu, která způsobí start skriptu 
         power threshold.
       default: 5
       selector:
@@ -34,8 +34,8 @@ blueprint:
           mode: slider
           step: 0.25
     finishing_threshold:
-      name: Finishing power threshold
-      description: Power threshold below which we assume the appliance has finished.
+      name: Práh spotřeby zajišťující konec
+      description: Prahová hodnota výkonu, pod kterou předpokládáme, že spotřebič skončil.
       default: 5
       selector:
         number:
@@ -45,9 +45,9 @@ blueprint:
           mode: slider
           step: 1.0
     finishing_hysteresis:
-      name: Finishing hysteresis
-      description: Time duration the power measurement has to stay below the finishing
-        power threshold.
+      name: Konečná hystteréze
+      description: Doba trvání měření výkonu, který musí zůstat pod konečnou hodnotou
+         aby došlo k ukončení skriptu.
       default: 5
       selector:
         number:
@@ -57,13 +57,13 @@ blueprint:
           mode: slider
           step: 0.25
     actions:
-      name: Actions
-      description: Actions (e.g. pushing a notification, TTS announcement, ...)
+      name: Akce
+      description: Akce (např. zaslání notifikace, TTS oznámení, ...)
       selector:
         action: {}
     pre_actions:
       name: Actions
-      description: Actions when starting threshhold is crossed
+      description: Akce co vykonat, pokud začal skript (např. oznámení, že spotřebič začal pracovat)
       selector:
         action: {}
   source_url: https://raw.githubusercontent.com/GeekOfBohemia/HomeAssistant/main/blueprints/spotrebic/ukoncil_cinnost.yaml
