@@ -1,7 +1,7 @@
 blueprint:
   name: Sledování spotřebiče
   description: Vykoná něco, když spotřebič (jako pračka nebo myčka nádobí)
-     začal pracovat a poté skončil,na základě sensoru výkonu ve wattech.
+     začal pracovat a poté skončil a to na základě sensoru výkonu ve wattech.
   domain: automation
   input:
     power_sensor:
