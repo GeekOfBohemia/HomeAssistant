@@ -23,7 +23,7 @@ blueprint:
           step: 1.0
     starting_hysteresis:
       name: Začátek hysteréze
-      description: Doba začátku měření výkonu, která způsobí start skriptu 
+      description: Doba začátku měření výkonu, která způsobí start skriptu. 
         power threshold.
       default: 5
       selector:
@@ -58,12 +58,12 @@ blueprint:
           step: 0.25
     actions:
       name: Akce na konci
-      description: Akce (např. zaslání notifikace, TTS oznámení, ...)
+      description: Akce (např. zaslání notifikace, TTS oznámení, ...).
       selector:
         action: {}
     pre_actions:
       name: Akce na začátku
-      description: Akce co vykonat, pokud začal skript (např. oznámení, že spotřebič začal pracovat)
+      description: Akce co vykonat, pokud začal skript (např. oznámení, že spotřebič začal pracovat).
       selector:
         action: {}
   source_url: https://raw.githubusercontent.com/GeekOfBohemia/HomeAssistant/main/blueprints/spotrebic/sledovani_spotrebice.yaml
