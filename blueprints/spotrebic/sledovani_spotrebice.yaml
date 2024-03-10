@@ -5,7 +5,7 @@ blueprint:
   domain: automation
   input:
     power_sensor:
-      name: Power Sensor
+      name: Sensor výkonu
       description: Entita snímače měřícího výkon ve wattech.
       selector:
         entity:
@@ -45,7 +45,7 @@ blueprint:
           mode: slider
           step: 1.0
     finishing_hysteresis:
-      name: Konečná hystteréze
+      name: Konečná hysteréze
       description: Doba trvání měření výkonu, který musí zůstat pod konečnou hodnotou
          aby došlo k ukončení skriptu.
       default: 5
@@ -57,12 +57,12 @@ blueprint:
           mode: slider
           step: 0.25
     actions:
-      name: Akce
+      name: Akce na konci
       description: Akce (např. zaslání notifikace, TTS oznámení, ...)
       selector:
         action: {}
     pre_actions:
-      name: Actions
+      name: Akce na začátku
       description: Akce co vykonat, pokud začal skript (např. oznámení, že spotřebič začal pracovat)
       selector:
         action: {}
