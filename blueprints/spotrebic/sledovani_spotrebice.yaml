@@ -66,7 +66,7 @@ blueprint:
       description: Akce co vykonat, pokud začal skript (např. oznámení, že spotřebič začal pracovat)
       selector:
         action: {}
-  source_url: https://raw.githubusercontent.com/GeekOfBohemia/HomeAssistant/main/blueprints/spotrebic/ukoncil_cinnost.yaml
+  source_url: https://raw.githubusercontent.com/GeekOfBohemia/HomeAssistant/main/blueprints/spotrebic/sledovani_spotrebice.yaml
 trigger:
 - platform: numeric_state
   entity_id: !input 'power_sensor'
