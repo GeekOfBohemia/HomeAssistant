@@ -1,1 +1,0 @@
-Lokální komunikace pomocí MODBUS
