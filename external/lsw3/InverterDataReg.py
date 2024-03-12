@@ -12,9 +12,9 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from appframe.config_data import configData
+from appframe.ha_client import HaClient
 from lsw3.InverterMap import do_map
 from lsw3.globals import (
-    REG_ADDR,
     REG_DEVICE_CLASS,
     REG_FRIENDLY_NAME,
     REG_ID,
@@ -22,7 +22,6 @@ from lsw3.globals import (
     REG_VALUE,
 )
 
-from appframe.ha_client import HAClientApi
 
 from appframe.helpers import HelperOp
 from appframe.core_control import CoreControl
@@ -52,10 +51,20 @@ DEVICE_IDENTIFIER = "sofar_123"
 SENSOR_PREFIX_ID = "SF"
 
 
-class DataReg(HAClientApi):
+class DataReg(HaClient):
     def __init__(self):
         super().__init__()
-        self.ha_mqtt = HomeAssistantMQTT()
+        err: str = "V souboru config.cfg v oddile [SofarInverter] msi byt uvedeno:"
+        hassError: bool = False
+        for el in ("inverter_ip", "inverter_port", "inverter_sn"):
+            if not hasattr(configData, el):
+                hassError = True
+                err += "\n - " + el
+        if hassError:
+            print(err)
+            sys.exit()
+
+        self.ha_mqtt = HomeAssistantMQTT("inverter")
         # Here is configuration what registers to read
         self.loop = [
             "0x0600",
