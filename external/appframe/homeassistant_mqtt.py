@@ -23,6 +23,7 @@ import json
 import paho.mqtt.client as paho
 import os
 import sys
+import configparser
 from appframe.logger import app_log
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -42,8 +43,17 @@ MQTT_SENSOR_STATE = "state"
 
 
 class HomeAssistantMQTT:
-    def __init__(self):
-        self.client = paho.Client("inverter")
+    def __init__(self, client_name: str):
+        self.client = paho.Client(client_name)
+        err: str = "V souboru config.cfg v oddile [MQTT] musi byt uvedeno:"
+        hassError: bool = False
+        for el in ("mqtt_username", "mqtt_passwd", "mqtt_server", "mqtt_port"):
+            if not hasattr(configData, el):
+                hassError = True
+                err += "\n - " + el
+        if hassError:
+            print(err)
+            sys.exit()
         self.client.username_pw_set(
             username=configData.mqtt_username, password=configData.mqtt_passwd
         )
@@ -76,16 +86,15 @@ class HomeAssistantMQTT:
         try:
             result.wait_for_publish()
         except:
-            print("Error publishing data to MQTT")
+            pass
+            # print("Error publishing data to MQTT")
         if result.is_published:
             app_log.info("*** Data has been succesfully published to MQTT ")
         else:
-            print("Error publishing data to MQTT")
+            pass
+            # print("Error publishing data to MQTT")
 
     def discover_sensor(self, mqtt_data):
-        #  homeassistant/sensor/SofarLogger_2380228322_1157/ActivePower_Output_Total/config
-        # homeassistant/sensor/identifier/name/config
-
         mqtt_data[MQTT_SENSOR_STATE_TOPIC] = (
             mqtt_data.get(MQTT_SENSOR_DEVICE_NAME, "").lower()
             + "/"
