@@ -5,10 +5,10 @@ blueprint:
 
     You can find more information about this blueprint on the Home Assistant Community: https://community.home-assistant.io/t/occupancy-blueprint/477772
   domain: automation
-  source_url: https://raw.githubusercontent.com/GeekOfBohemia/HomeAssistant/main/blueprints/obsazenost/obsazenost.yaml
+  source_url: https://gist.github.com/AlexanderBabel/487f054b289b61f90afdc837d23cb85e
   input:
-    dvere_sensor:
-      name: Snesor dveří případně skupina sensoru dveří
+    door_sensor:
+      name: Sensor dveří případně skupina sensoru dveří
       selector:
         entity:
           domain: binary_sensor
