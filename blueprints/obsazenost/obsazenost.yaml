@@ -5,7 +5,7 @@ blueprint:
 
     You can find more information about this blueprint on the Home Assistant Community: https://community.home-assistant.io/t/occupancy-blueprint/477772
   domain: automation
-  source_url: https://github.com/GeekOfBohemia/HomeAssistant/blob/main/blueprints/obsazenost/obsazenost.yaml
+  source_url: https://raw.githubusercontent.com/GeekOfBohemia/HomeAssistant/main/blueprints/obsazenost/obsazenost.yaml
   input:
     dvere_sensor:
       name: Snesor dveří případně skupina sensoru dveří
