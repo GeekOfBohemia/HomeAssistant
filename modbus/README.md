@@ -1,6 +1,6 @@
 # Modbus pro SOFAR Inverter 8KTL-3PH + LSW-3
 
-# Structure to run
+# Struktura
 ```bash
 
 your_directory
