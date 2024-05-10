@@ -16,4 +16,4 @@ control.log
   
 
 Main file: InverterDataReg.py
-Configuration
+
