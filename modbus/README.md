@@ -1,8 +1,6 @@
-# SOFAR Inverter 8KTL-3PH + LSW-3
-Code for SOFAR Inverter for HomeAssistant.
-This is not typical integration - running on isolate server communication with HomeAssistant is via REST-API
+# Modbus pro SOFAR Inverter 8KTL-3PH + LSW-3
 
-For the base was used MichaluxPL library together with knowledge https://www.elektroda.pl/rtvforum/topic3698233-240.html
+
 # Required python modules
 ```
 libscrc
