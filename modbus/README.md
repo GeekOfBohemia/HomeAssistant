@@ -1,17 +1,5 @@
 # Modbus pro SOFAR Inverter 8KTL-3PH + LSW-3
 
-
-# Required python modules
-```
-libscrc
-pandas
-```
-
-# Required my modules
-```
-appframe
-```
-
 # Structure to run
 ```bash
 
