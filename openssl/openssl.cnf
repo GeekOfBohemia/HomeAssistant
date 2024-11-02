@@ -1,0 +1,33 @@
+[ req ]
+default_bits		    = 2048
+distinguished_name	= req_distinguished_name
+attributes		      = req_attributes
+x509_extensions    	= v3_req
+prompt             	= no
+
+
+[ req_distinguished_name ]
+
+countryName=		        CZ
+stateOrProvinceName=	  Czechia
+localityName=		        !doplnit
+organizationName=	      !doplnit
+organizationalUnitName=	homeassistant
+commonName=		          HomeAssistant
+emailAddress=		        mail@doplnit.com
+
+
+[ req_attributes ]
+[ req_distinguished_name ]
+CN = Atlantus
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ v3_req ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = ha.local
+DNS.2 = frigate.local
+DNS.4 = zvonek.local
