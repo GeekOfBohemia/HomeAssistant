@@ -1,0 +1,6 @@
+openssl genrsa -out atlantus.key 2048
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout atlantus.key -out atlantus.crt -config atlantus.cnf
+
+Win+R certmgr.msc
+Trusted root Certification Authorities
+all types
