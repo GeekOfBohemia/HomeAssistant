@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  nginx:
+    container_name: nginx-proxy
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /home/ubuntu/docker-compose/nginx/logs:/var/log/nginx
+      - /home/ubuntu/docker-compose/nginx/config/nginx.conf:/etc/nginx/nginx.conf:ro      # NGINX konfigurace
+      - /home/ubuntu/docker-compose/nginx/certs:/etc/nginx/ssl:ro                         # SSL certifikáty
+    restart: unless-stopped
